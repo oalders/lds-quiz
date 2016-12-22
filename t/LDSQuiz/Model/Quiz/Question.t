@@ -17,7 +17,7 @@ is( $question->id,         'helen-mar-kimball', 'id' );
 is( $question->input_type, 'radio',             'input_type' );
 is_deeply( $question->options, [ 14 .. 17 ], 'options' );
 is(
-    $question->question,
+    $question->content,
     'How old was Helen Mar Kimball when she married Joseph Smith?',
     'question'
 );

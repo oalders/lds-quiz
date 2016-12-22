@@ -4,6 +4,7 @@
       "questions" : [
          {
             "answer" : 0,
+            "content" : "How old was Helen Mar Kimball when she married Joseph Smith?",
             "id" : "helen-mar-kimball",
             "input_type" : "radio",
             "options" : [
@@ -11,18 +12,17 @@
                15,
                16,
                17
-            ],
-            "question" : "How old was Helen Mar Kimball when she married Joseph Smith?"
+            ]
          },
          {
             "answer" : 0,
+            "content" : "Zina Huntington was already married to Henry Jacobs when she married Joseph Smith.",
             "id" : "zina-huntington-polyandry",
             "input_type" : "checkbox",
             "options" : [
                "True",
                "False"
-            ],
-            "question" : "Zina Huntington was already married to Henry Jacobs when she married Joseph Smith."
+            ]
          }
       ]
    }

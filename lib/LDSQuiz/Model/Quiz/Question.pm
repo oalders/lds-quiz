@@ -11,6 +11,19 @@ has answer => (
     required => 1,
 );
 
+has answer_content => (
+    is      => 'ro',
+    isa     => Str,
+    lazy    => 1,
+    default => sub { $_[0]->options->[ $_[0]->answer ] },
+);
+
+has content => (
+    is       => 'ro',
+    isa      => Str,
+    required => 1,
+);
+
 has id => (
     is       => 'ro',
     isa      => Str,
@@ -26,12 +39,6 @@ has input_type => (
 has options => (
     is       => 'ro',
     isa      => ArrayRef,
-    required => 1,
-);
-
-has question => (
-    is       => 'ro',
-    isa      => Str,
     required => 1,
 );
 

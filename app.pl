@@ -23,8 +23,6 @@ get '/quiz/:id' => sub {
         = $model->quiz_for_id( $c->param('id'), $position  )
         || return $c->not_found;
 
-    $quiz->questions;
-    $quiz->size;
     $c->stash( quiz     => $quiz );
 
     return _answer($c) if defined $c->param('answer');
@@ -50,14 +48,14 @@ __DATA__
 @@ quiz.html.ep
 % layout 'default';
 % title 'Quiz';
-Question: <%= $quiz->question %>
+Question: <%= $quiz->question->content %>
 
 <form method="GET">
 %= hidden_field position => $quiz->position
 % my $i = 0;
-% for my $option ( @{$q->{options}} ) {
+% for my $option ( @{$quiz->question->options} ) {
 <p>
-<%= $q->{input_type} eq 'radio' ? radio_button( answer => $i ) : check_box( answer => $i) %>
+<%= $quiz->question->input_type eq 'radio' ? radio_button( answer => $i ) : check_box( answer => $i) %>
 <%= $option %>
 </p>
 %      ++$i;
@@ -68,11 +66,18 @@ Question: <%= $quiz->question %>
 @@ answer.html.ep
 % layout 'default';
 % title 'Quiz';
-Question: <%= $q->{question} %>
-Answer: <%= param('answer') == $q->{answer} ? 'correct' : 'incorrect' %>
+% my $answer = param('answer');
 
-% use DDP;
-% p $quiz;
+Question: <%= $quiz->question->content %>
+Your answer: <%= $quiz->question->options->[ $answer ] %>
+
+% my $correct = $answer == $quiz->question->answer;
+
+This is: <%= $correct ? 'correct' : 'incorrect' %>
+
+% unless ( $correct ) {
+    The correct answer is: <%= $quiz->question->answer_content %>
+% }
 
 % if ( $quiz->next_position ) {
 <a href="<%= url_for('quiz')->query([position => $quiz->next_position]) %>">
