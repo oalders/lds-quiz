@@ -24,7 +24,7 @@
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "0",
-            "perl" : "5.006"
+            "perl" : "5.010"
          }
       },
       "develop" : {
@@ -43,9 +43,11 @@
             "Cpanel::JSON::XS" : "0",
             "Moo" : "0",
             "Path::Tiny" : "0",
+            "Text::Markdown" : "0",
             "Types::Common::Numeric" : "0",
             "Types::Standard" : "0",
-            "perl" : "5.006",
+            "feature" : "0",
+            "perl" : "5.010",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -53,7 +55,7 @@
       "test" : {
          "requires" : {
             "Test::More" : "0",
-            "perl" : "5.006"
+            "perl" : "5.010"
          }
       }
    },

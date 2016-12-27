@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010;
 
 use ExtUtils::MakeMaker;
 
@@ -13,15 +13,20 @@ my %WriteMakefileArgs = (
     "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "LDSQuiz",
+  "EXE_FILES" => [
+    "bin/convert-markdown.pl"
+  ],
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.006",
+  "MIN_PERL_VERSION" => "5.010",
   "NAME" => "LDSQuiz",
   "PREREQ_PM" => {
     "Cpanel::JSON::XS" => 0,
     "Moo" => 0,
     "Path::Tiny" => 0,
+    "Text::Markdown" => 0,
     "Types::Common::Numeric" => 0,
     "Types::Standard" => 0,
+    "feature" => 0,
     "strict" => 0,
     "warnings" => 0
   },
@@ -40,8 +45,10 @@ my %FallbackPrereqs = (
   "Moo" => 0,
   "Path::Tiny" => 0,
   "Test::More" => 0,
+  "Text::Markdown" => 0,
   "Types::Common::Numeric" => 0,
   "Types::Standard" => 0,
+  "feature" => 0,
   "strict" => 0,
   "warnings" => 0
 );

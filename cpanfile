@@ -1,20 +1,22 @@
 requires "Cpanel::JSON::XS" => "0";
 requires "Moo" => "0";
 requires "Path::Tiny" => "0";
+requires "Text::Markdown" => "0";
 requires "Types::Common::Numeric" => "0";
 requires "Types::Standard" => "0";
-requires "perl" => "5.006";
+requires "feature" => "0";
+requires "perl" => "5.010";
 requires "strict" => "0";
 requires "warnings" => "0";
 
 on 'test' => sub {
   requires "Test::More" => "0";
-  requires "perl" => "5.006";
+  requires "perl" => "5.010";
 };
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
-  requires "perl" => "5.006";
+  requires "perl" => "5.010";
 };
 
 on 'develop' => sub {
