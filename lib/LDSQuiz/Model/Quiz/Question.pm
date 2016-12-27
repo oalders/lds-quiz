@@ -2,6 +2,7 @@ package LDSQuiz::Model::Quiz::Question;
 
 use Moo;
 
+use Path::Tiny qw( path );
 use Types::Common::Numeric qw( PositiveInt PositiveOrZeroInt );
 use Types::Standard qw( ArrayRef Enum Str );
 
@@ -16,6 +17,14 @@ has answer_content => (
     isa     => Str,
     lazy    => 1,
     default => sub { $_[0]->options->[ $_[0]->answer ] },
+);
+
+has answer_discussion => (
+    is   => 'ro',
+    isa  => Str,
+    lazy => 1,
+    default =>
+        sub { path( 'templates/html/answers', $_[0]->id . '.html' )->slurp },
 );
 
 has content => (

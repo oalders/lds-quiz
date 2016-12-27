@@ -79,6 +79,8 @@ Question: <%= $quiz->question->content %>
     <p>The correct answer is: <%= $quiz->question->answer_content %></p>
 % }
 
+<%== $quiz->question->answer_discussion %>
+
 % if ( $quiz->next_position ) {
 <p>
 <a href="<%= url_for('quiz')->query([position => $quiz->next_position]) %>">
