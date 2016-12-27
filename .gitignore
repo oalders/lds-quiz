@@ -1,3 +1,5 @@
+.build
+LDSQuiz-*
 .perl-version
 *.sw*
 .tidyall.d
