@@ -68,24 +68,26 @@ Question: <%= $quiz->question->content %>
 % title 'Quiz';
 % my $answer = param('answer');
 
-Question: <%= $quiz->question->content %>
-Your answer: <%= $quiz->question->options->[ $answer ] %>
+<p>Question: <%= $quiz->question->content %></p>
+<p>Your answer: <%= $quiz->question->options->[ $answer ] %></p>
 
 % my $correct = $answer == $quiz->question->answer;
 
-This is: <%= $correct ? 'correct' : 'incorrect' %>
+<p>This is: <%= $correct ? 'correct' : 'incorrect' %></p>
 
 % unless ( $correct ) {
-    The correct answer is: <%= $quiz->question->answer_content %>
+    <p>The correct answer is: <%= $quiz->question->answer_content %></p>
 % }
 
 % if ( $quiz->next_position ) {
+<p>
 <a href="<%= url_for('quiz')->query([position => $quiz->next_position]) %>">
 Next question
 </a>
+</p>
 % }
 % else {
-    Quiz complete.
+    <p>Quiz complete.</p>
 % }
 
 @@ layouts/default.html.ep
