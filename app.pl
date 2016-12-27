@@ -5,9 +5,6 @@ use Mojolicious::Lite;
 use lib 'lib';
 use LDSQuiz::Model ();
 
-# Documentation browser under "/perldoc"
-plugin 'PODRenderer';
-
 get '/' => sub {
     my $c = shift;
     $c->render( template => 'index' );
@@ -16,14 +13,12 @@ get '/' => sub {
 get '/quiz/:id' => sub {
     my $c = shift;
 
-    state $model  = LDSQuiz::Model->new;
-    state $config = LDSQuiz::Model->new->config;
+    state $model = LDSQuiz::Model->new;
     my $position = $c->param('position') || 0;
-    my $quiz
-        = $model->quiz_for_id( $c->param('id'), $position  )
+    my $quiz = $model->quiz_for_id( $c->param('id'), $position )
         || return $c->not_found;
 
-    $c->stash( quiz     => $quiz );
+    $c->stash( quiz => $quiz );
 
     return _answer($c) if defined $c->param('answer');
 
