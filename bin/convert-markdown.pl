@@ -16,6 +16,7 @@ foreach my $file (@templates) {
 
     my $html_file_path = $file;
     $html_file_path =~ s{markdown}{html};
+    $html_file_path =~ s{\.md}{.html};
 
     path($html_file_path)->spew( markdown($content) );
     say "Created/updated $html_file_path";
