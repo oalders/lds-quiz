@@ -26,7 +26,10 @@ get '/quiz/:id' => sub {
 } => 'quiz';
 
 sub _answer {
-    my $c = shift;
+    my $c    = shift;
+    my $quiz = $c->stash('quiz');
+    $c->session->{answers}->{ $quiz->id }->[ $quiz->position ]
+        = $c->param('answer');
     $c->render( template => 'answer' );
 }
 

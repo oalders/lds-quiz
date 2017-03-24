@@ -26,6 +26,7 @@ sub quiz_for_id {
 
     return LDSQuiz::Model::Quiz->new(
         config   => $self->config->{$id},
+        id       => $id,
         position => $position,
     );
 }

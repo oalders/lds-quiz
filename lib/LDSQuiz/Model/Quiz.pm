@@ -4,7 +4,7 @@ use Moo;
 
 use LDSQuiz::Model::Quiz::Question ();
 use Types::Common::Numeric qw( PositiveInt PositiveOrZeroInt );
-use Types::Standard qw( ArrayRef HashRef InstanceOf Maybe );
+use Types::Standard qw( ArrayRef HashRef InstanceOf Maybe Str );
 
 has _all_questions => (
     is      => 'ro',
@@ -17,6 +17,12 @@ has _config => (
     is       => 'ro',
     isa      => HashRef,
     init_arg => 'config',
+    required => 1,
+);
+
+has id => (
+    is       => 'ro',
+    isa      => Str,
     required => 1,
 );
 
@@ -58,22 +64,6 @@ sub _build_question {
     my $self = shift;
     return LDSQuiz::Model::Quiz::Question->new(
         $self->_config->{questions}->[ $self->position ] );
-}
-
-sub question_position_for_id {
-    my $self = shift;
-    my $id   = shift;
-
-    my $pos = 0;
-    for my $q ( @{ $self->size } ) {
-        return $pos if $id eq $q->{id};
-        $pos++;
-    }
-}
-
-sub next_question_position {
-    my $self = shift;
-    my $id   = shift;
 }
 
 1;
