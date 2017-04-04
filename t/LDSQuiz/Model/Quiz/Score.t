@@ -7,7 +7,8 @@ use LDSQuiz::Model::Quiz::Score;
 
 {
     my $score = get_model( [ 1, 1 ] );
-    is( $score->score, 0, 'score' );
+    is( $score->score,  0, 'score' );
+    is( $score->out_of, 2, 'two questions in quiz' );
 }
 
 {

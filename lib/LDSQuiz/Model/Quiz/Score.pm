@@ -16,7 +16,7 @@ package LDSQuiz::Model::Quiz::Score;
 use Moo;
 
 use LDSQuiz::Model ();
-use LDSQuiz::Types qw( ArrayRef Num SimpleStr );
+use LDSQuiz::Types qw( ArrayRef Num PositiveInt SimpleStr );
 use List::AllUtils qw( pairwise );
 
 has answers => (
@@ -25,12 +25,20 @@ has answers => (
     required => 1,
 );
 
-has config => (
-    is   => 'ro',
-    isa  => ArrayRef,
-    lazy => 1,
-    default =>
-        sub { LDSQuiz::Model->new->config->{ $_[0]->quiz_id }->{questions} },
+has answer_key => (
+    is      => 'ro',
+    isa     => ArrayRef,
+    lazy    => 1,
+    builder => '_build_answer_key',
+);
+
+has out_of => (
+    is      => 'ro',
+    isa     => PositiveInt,
+    lazy    => 1,
+    default => sub {
+        scalar @{ $_[0]->answer_key },
+    },
 );
 
 has quiz_id => (
@@ -46,11 +54,18 @@ has score => (
     builder => '_build_score',
 );
 
+sub _build_answer_key {
+    my $self   = shift;
+    my $config = LDSQuiz::Model->new->config->{ $self->quiz_id };
+
+    return [ map { $_->{answer} } @{ $config->{questions} } ];
+}
+
 sub _build_score {
-    my $self       = shift;
-    my $score      = 0;
-    my @answer_key = map { $_->{answer} } @{ $self->config };
-    my @pairs      = pairwise { [ $a, $b ] } @answer_key, @{ $self->answers };
+    my $self  = shift;
+    my $score = 0;
+    my @pairs = pairwise { [ $a, $b ] } @{ $self->answer_key },
+        @{ $self->answers };
 
     foreach my $pair (@pairs) {
         ++$score if defined $pair->[1] && $pair->[0] == $pair->[1];
