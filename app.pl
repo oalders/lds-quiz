@@ -3,7 +3,9 @@
 use Mojolicious::Lite;
 
 use lib 'lib';
-use LDSQuiz::Model ();
+
+use LDSQuiz::Model              ();
+use LDSQuiz::Model::Quiz::Score ();
 
 get '/' => sub {
     my $c = shift;
@@ -19,6 +21,13 @@ get '/quiz/:id' => sub {
         || return $c->not_found;
 
     $c->stash( quiz => $quiz );
+    if ( $quiz->is_complete ) {
+        my $score = LDSQuiz::Model::Quiz::Score->new(
+            answers => $c->session->{answers}->{ $quiz->id },
+            quiz_id => $quiz->id,
+        );
+        $c->stash( score => $score );
+    }
 
     return _answer($c) if defined $c->param('answer');
 
@@ -88,6 +97,7 @@ Next question
 % }
 % else {
     <p>Quiz complete.</p>
+    <p> You scored <%= $score->score %> out of <%= $score->out_of %></p>
 % }
 
 @@ layouts/default.html.ep

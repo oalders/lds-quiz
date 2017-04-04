@@ -5,6 +5,7 @@ use Moo;
 use LDSQuiz::Model::Quiz::Question ();
 use LDSQuiz::Types qw(
     ArrayRef
+    Bool
     HashRef
     InstanceOf
     Maybe
@@ -31,6 +32,13 @@ has id => (
     is       => 'ro',
     isa      => Str,
     required => 1,
+);
+
+has is_complete => (
+    is      => 'ro',
+    isa     => Bool,
+    lazy    => 1,
+    default => sub { !$_[0]->next_position },
 );
 
 has next_position => (
