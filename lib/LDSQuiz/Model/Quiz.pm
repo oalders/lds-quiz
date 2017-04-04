@@ -3,8 +3,15 @@ package LDSQuiz::Model::Quiz;
 use Moo;
 
 use LDSQuiz::Model::Quiz::Question ();
-use Types::Common::Numeric qw( PositiveInt PositiveOrZeroInt );
-use Types::Standard qw( ArrayRef HashRef InstanceOf Maybe Str );
+use LDSQuiz::Types qw(
+    ArrayRef
+    HashRef
+    InstanceOf
+    Maybe
+    PositiveInt
+    PositiveOrZeroInt
+    Str
+);
 
 has _all_questions => (
     is      => 'ro',

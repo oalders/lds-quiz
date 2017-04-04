@@ -2,9 +2,8 @@ package LDSQuiz::Model::Quiz::Question;
 
 use Moo;
 
+use LDSQuiz::Types qw( ArrayRef Enum PositiveInt PositiveOrZeroInt Str );
 use Path::Tiny qw( path );
-use Types::Common::Numeric qw( PositiveInt PositiveOrZeroInt );
-use Types::Standard qw( ArrayRef Enum Str );
 
 has answer => (
     is       => 'ro',

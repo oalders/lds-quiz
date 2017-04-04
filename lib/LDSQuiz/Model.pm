@@ -4,8 +4,8 @@ use Moo;
 
 use Cpanel::JSON::XS qw( decode_json );
 use LDSQuiz::Model::Quiz ();
+use LDSQuiz::Types qw( HashRef );
 use Path::Tiny qw( path );
-use Types::Standard qw( HashRef );
 
 has config => (
     is      => 'ro',
