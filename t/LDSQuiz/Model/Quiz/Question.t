@@ -5,8 +5,8 @@ use Test::More;
 
 use LDSQuiz::Model ();
 
-my $model = LDSQuiz::Model->new;
-my $quiz = $model->quiz_for_id( 'intro', 0 );
+my $model = LDSQuiz::Model->new( position => 0, quiz_id => 'intro', );
+my $quiz = $model->quiz;
 
 ok( $quiz, 'quiz' );
 my $question = $quiz->question;

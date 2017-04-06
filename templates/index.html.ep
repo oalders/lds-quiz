@@ -1,0 +1,6 @@
+% layout 'default';
+% title 'Welcome';
+<h1>Test Your Knowledge of LDS Church History</h1>
+
+<a href="/quiz/intro">Take the introductory quiz</a>
+

@@ -1,0 +1,18 @@
+% layout 'default';
+% title 'Quiz';
+% my $quiz = $model->quiz;
+Question: <%= $quiz->question->content %>
+
+<form method="GET">
+%= hidden_field position => $quiz->position
+% my $i = 0;
+% for my $option ( @{$quiz->question->options} ) {
+<p>
+<%= $quiz->question->input_type eq 'radio' ? radio_button( answer => $i ) : check_box( answer => $i) %>
+<%= $option %>
+</p>
+%      ++$i;
+% }
+%= submit_button
+</form>
+

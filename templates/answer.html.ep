@@ -1,0 +1,35 @@
+% layout 'default';
+% title 'Quiz';
+% my $answer = param('answer');
+% my $quiz = $model->quiz;
+
+<p>Question: <%= $quiz->question->content %></p>
+<p>Your answer: <%= $quiz->question->options->[ $answer ] %></p>
+
+% my $correct = $answer == $quiz->question->answer;
+
+<p>This is: <%= $correct ? 'correct' : 'incorrect' %></p>
+
+% unless ( $correct ) {
+    <p>The correct answer is: <%= $quiz->question->answer_content %></p>
+% }
+
+<%== $quiz->question->answer_discussion %>
+
+% if ( $quiz->next_position ) {
+<p>
+<a href="<%= url_for('quiz')->query([position => $quiz->next_position]) %>">
+Next question
+</a>
+</p>
+% }
+% else {
+%   use LDSQuiz::Model::Quiz::Score ();
+%   my $score = LDSQuiz::Model::Quiz::Score->new(
+%     answers => $c->session->{answers}->{ $quiz->id },
+%     quiz_id => $quiz->id,
+%   );
+    <p>Quiz complete.</p>
+    <p> You scored <%= $score->score %> out of <%= $score->out_of %></p>
+% }
+
