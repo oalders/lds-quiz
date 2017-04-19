@@ -1,18 +1,23 @@
 % layout 'default';
 % title 'Quiz';
 % my $quiz = $model->quiz;
-Question: <%= $quiz->question->content %>
 
-<form method="GET">
+%= include '_progress_bar'
+
+<div class="body shadow light-gray-bg ">
+  <h3>Question: <%= $quiz->question->content %></h3>
+  <div class="separator"></div>
+
+    <form method="GET" action="">
 %= hidden_field position => $quiz->position
 % my $i = 0;
 % for my $option ( @{$quiz->question->options} ) {
-<p>
-<%= $quiz->question->input_type eq 'radio' ? radio_button( answer => $i ) : check_box( answer => $i) %>
-<%= $option %>
-</p>
+  <p>
+    <%= $quiz->question->input_type eq 'radio' ? radio_button( answer => $i ) : check_box( answer => $i) %>
+    <%= $option %>
+  </p>
 %      ++$i;
 % }
-%= submit_button
-</form>
-
+%= submit_button 'submit'
+    </form>
+</div>

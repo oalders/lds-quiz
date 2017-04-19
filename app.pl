@@ -18,11 +18,13 @@ get '/quiz/:id' => sub {
 
     # Fake a singleton
     state $config = LDSQuiz::Model->new->config;
+    my $is_answer = defined $c->param('answer');
 
     my $model = LDSQuiz::Model->new(
-        config   => $config,
+        config => $config,
+        phase  => $is_answer ? 'answer' : 'question',
         position => $c->param('position') || 0,
-        quiz_id  => $c->param('id'),
+        quiz_id => $c->param('id'),
     );
 
     my $quiz;
@@ -33,7 +35,7 @@ get '/quiz/:id' => sub {
     return $c->reply->not_found unless $quiz;
 
     $c->stash( model => $model );
-    return _save_and_render_answer($c) if defined $c->param('answer');
+    return _save_and_render_answer($c) if $is_answer;
 
     $c->render( template => 'quiz' );
 } => 'quiz';

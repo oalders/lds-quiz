@@ -1,0 +1,6 @@
+% my $quiz = $model->quiz;
+<div class="progress style-1">
+  <span class="text"></span>
+  <div class="progress-bar progress-bar-info" role="progressbar" data-animate-width="<%= $quiz->progress %>%" style="width: <%= $quiz->progress %>%;">
+  </div>
+</div>

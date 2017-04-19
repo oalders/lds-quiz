@@ -5,7 +5,7 @@ use Moo;
 use Cpanel::JSON::XS qw( decode_json );
 use LDSQuiz::Model::Quiz        ();
 use LDSQuiz::Model::Quiz::Score ();
-use LDSQuiz::Types qw( HashRef InstanceOf PositiveOrZeroInt SimpleStr );
+use LDSQuiz::Types qw( Enum HashRef InstanceOf PositiveOrZeroInt SimpleStr );
 use Path::Tiny qw( path );
 
 has config => (
@@ -13,6 +13,12 @@ has config => (
     isa     => HashRef,
     lazy    => 1,
     builder => '_build_config',
+);
+
+has phase => (
+    is        => 'ro',
+    isa       => Enum [ 'answer', 'question' ],
+    predicate => '_has_phase',
 );
 
 has position => (
@@ -64,6 +70,7 @@ sub _build_quiz {
         config   => $self->config->{ $self->quiz_id },
         id       => $self->quiz_id,
         position => $self->position,
+        $self->_has_phase ? ( phase => $self->phase ) : (),
     );
 }
 

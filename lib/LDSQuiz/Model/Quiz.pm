@@ -6,6 +6,7 @@ use LDSQuiz::Model::Quiz::Question ();
 use LDSQuiz::Types qw(
     ArrayRef
     Bool
+    Enum
     HashRef
     InstanceOf
     Maybe
@@ -13,6 +14,7 @@ use LDSQuiz::Types qw(
     PositiveOrZeroInt
     Str
 );
+use Math::Round qw( round );
 
 has _all_questions => (
     is      => 'ro',
@@ -48,10 +50,23 @@ has next_position => (
     builder => '_build_next_position',
 );
 
+has phase => (
+    is        => 'ro',
+    isa       => Enum [ 'answer', 'question' ],
+    predicate => '_has_phase',
+);
+
 has position => (
     is       => 'ro',
     isa      => PositiveOrZeroInt,
     required => 1,
+);
+
+has progress => (
+    is      => 'ro',
+    isa     => PositiveOrZeroInt,
+    lazy    => 1,
+    builder => '_build_progress',
 );
 
 has question => (
@@ -73,6 +88,17 @@ sub _build_next_position {
     return $self->position < $self->size - 1
         ? $self->position + 1
         : undef;
+}
+
+sub _build_progress {
+    my $self = shift;
+    return round(
+        (
+              $self->_has_phase && $self->phase eq 'question'
+            ? $self->position
+            : $self->position + 1
+        ) / $self->size * 100
+    );
 }
 
 sub _build_question {
