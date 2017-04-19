@@ -2,26 +2,28 @@
 use strict;
 use warnings;
 
-use 5.010;
+use 5.013010;
 
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Stub module for LDSQuiz app",
+  "ABSTRACT" => "An LDS Church History Quiz that doesn't remove the interesting parts",
   "AUTHOR" => "Olaf Alders <olaf\@wundercounter.com>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "LDSQuiz",
   "EXE_FILES" => [
-    "bin/convert-markdown.pl"
+    "bin/convert-markdown.pl",
+    "bin/update-assets.sh"
   ],
   "LICENSE" => "perl",
-  "MIN_PERL_VERSION" => "5.010",
+  "MIN_PERL_VERSION" => "5.013010",
   "NAME" => "LDSQuiz",
   "PREREQ_PM" => {
     "Cpanel::JSON::XS" => 0,
     "List::AllUtils" => 0,
+    "Math::Round" => 0,
     "Moo" => 0,
     "Path::Tiny" => 0,
     "Text::Markdown" => 0,
@@ -36,6 +38,8 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
+    "DDP" => 0,
+    "Test::Mojo" => 0,
     "Test::More" => 0
   },
   "VERSION" => "0.000001",
@@ -47,9 +51,12 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Cpanel::JSON::XS" => 0,
+  "DDP" => 0,
   "List::AllUtils" => 0,
+  "Math::Round" => 0,
   "Moo" => 0,
   "Path::Tiny" => 0,
+  "Test::Mojo" => 0,
   "Test::More" => 0,
   "Text::Markdown" => 0,
   "Type::Library" => 0,

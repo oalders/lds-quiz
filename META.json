@@ -1,5 +1,5 @@
 {
-   "abstract" : "Stub module for LDSQuiz app",
+   "abstract" : "An LDS Church History Quiz that doesn't remove the interesting parts",
    "author" : [
       "Olaf Alders <olaf@wundercounter.com>"
    ],
@@ -24,7 +24,7 @@
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "0",
-            "perl" : "5.010"
+            "perl" : "5.013010"
          }
       },
       "develop" : {
@@ -42,6 +42,7 @@
          "requires" : {
             "Cpanel::JSON::XS" : "0",
             "List::AllUtils" : "0",
+            "Math::Round" : "0",
             "Moo" : "0",
             "Path::Tiny" : "0",
             "Text::Markdown" : "0",
@@ -52,15 +53,17 @@
             "Types::Common::String" : "0",
             "Types::Standard" : "0",
             "feature" : "0",
-            "perl" : "5.010",
+            "perl" : "5.013010",
             "strict" : "0",
             "warnings" : "0"
          }
       },
       "test" : {
          "requires" : {
+            "DDP" : "0",
+            "Test::Mojo" : "0",
             "Test::More" : "0",
-            "perl" : "5.010"
+            "perl" : "5.013010"
          }
       }
    },
