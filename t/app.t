@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 
-use DDP;
 use Test::Mojo;
 use Test::More;
 
