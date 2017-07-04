@@ -12,6 +12,10 @@
                15,
                16,
                17
+            ],
+            "tags" : [
+               "citation required",
+               "polygamy"
             ]
          },
          {
@@ -22,6 +26,10 @@
             "options" : [
                "True",
                "False"
+            ],
+            "tags" : [
+               "citation required",
+               "polygamy"
             ]
          }
       ]
