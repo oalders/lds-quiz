@@ -10,9 +10,9 @@
 </div>
 <div class="row">
   <div class="col-xs-2 col-sm-4 col-md-6">
-<div class="alert alert-<%= $correct ? 'success' : 'danger' %>" role="alert">
+<div class="alert alert-icon alert-<%= $correct ? 'success' : 'danger' %>" role="alert">
   Your answer:
-  <span class="fa fa-<%= $correct ? 'check' : 'exclamation' %>-circle" aria-hidden="true"></span>
+  <i class="fa fa-<%= $correct ? 'check' : 'exclamation' %>-circle" aria-hidden="true"></i>
   <%= $quiz->question->options->[ $answer ] %>
 </div>
   </div>
@@ -43,8 +43,8 @@
 %     quiz_id => $quiz->id,
 %   );
     <div class="alert alert-success">
-      <p>Quiz complete.</p>
-      <p> You scored <%= $score->score %> out of <%= $score->out_of %></p>
+      <h3>Quiz complete.</h3>
+      <p> You scored <%= $score->percent %>% (<%= $score->score %> out of <%= $score->out_of %>)</p>
     </div>
     <div class="col-xs-3 col-sm-6 col-md-9"></div>
 % }
