@@ -16,8 +16,9 @@ package LDSQuiz::Model::Quiz::Score;
 use Moo;
 
 use LDSQuiz::Model ();
-use LDSQuiz::Types qw( ArrayRef Num PositiveInt SimpleStr );
+use LDSQuiz::Types qw( ArrayRef Num PositiveInt PositiveOrZeroInt SimpleStr );
 use List::AllUtils qw( pairwise );
+use Math::Round qw( round );
 
 has answers => (
     is       => 'ro',
@@ -45,6 +46,13 @@ has quiz_id => (
     is       => 'ro',
     isa      => SimpleStr,
     required => 1,
+);
+
+has percent => (
+    is      => 'ro',
+    isa     => PositiveOrZeroInt,
+    lazy    => 1,
+    default => sub { round( $_[0]->score / $_[0]->out_of * 100 ) },
 );
 
 has score => (
