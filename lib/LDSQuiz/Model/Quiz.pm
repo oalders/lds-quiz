@@ -12,6 +12,7 @@ use LDSQuiz::Types qw(
     Maybe
     PositiveInt
     PositiveOrZeroInt
+    SimpleStr
     Str
 );
 use Math::Round qw( round );
@@ -41,6 +42,13 @@ has is_complete => (
     isa     => Bool,
     lazy    => 1,
     default => sub { !$_[0]->next_position },
+);
+
+has name => (
+    is      => 'ro',
+    isa     => SimpleStr,
+    lazy    => 1,
+    default => sub { $_[0]->_config->{name} },
 );
 
 has next_position => (
