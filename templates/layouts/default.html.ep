@@ -119,7 +119,7 @@
 									<!-- ================ -->
 									<div class="header-top-dropdown text-right">
 										<div class="btn-group">
-											<a href="page-signup.html" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Contribute</a>
+											<a href="https://github.com/oalders/lds-quiz#contributing" class="btn btn-default btn-sm"><i class="fa fa-user pr-10"></i> Contribute</a>
 										</div>
 									</div>
 									<!--  header top dropdowns end -->
@@ -141,7 +141,9 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li><i class="fa fa-home pr-10"></i><a href="/">Home</a></li>
-						<li class="active">Portfolio Item</li>
+% if ( stash('model') ) {
+            <li class="active"><%= stash('model')->quiz->name %></li>
+% }
 					</ol>
 				</div>
 			</div>
@@ -182,7 +184,7 @@
                       project.  If you find any errors please <a
                         href="https://github.com/oalders/lds-quiz/issues"
                         target="_blank">open an issue on GitHub</a> or use the
-                      email contact below.  Contributions of new questions are
+                      email contact below.  <a href="https://github.com/oalders/lds-quiz#contributing" target="_blank">Contributions of new questions</a> are
                       also most welcome.
 
                     </p>

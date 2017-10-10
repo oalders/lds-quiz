@@ -1,37 +1,100 @@
 {
-   "intro" : {
-      "name" : "Intro Quiz",
-      "questions" : [
-         {
-            "answer" : 0,
-            "content" : "How old was Helen Mar Kimball when she married Joseph Smith?",
-            "id" : "helen-mar-kimball",
-            "input_type" : "radio",
-            "options" : [
-               14,
-               15,
-               16,
-               17
-            ],
-            "tags" : [
-               "citation required",
-               "polygamy"
-            ]
-         },
-         {
-            "answer" : 0,
-            "content" : "Zina Huntington was already married to Henry Jacobs when she married Joseph Smith.",
-            "id" : "zina-huntington-polyandry",
-            "input_type" : "checkbox",
-            "options" : [
-               "True",
-               "False"
-            ],
-            "tags" : [
-               "citation required",
-               "polygamy"
-            ]
-         }
-      ]
-   }
+  "intro": {
+    "name": "Intro Quiz",
+    "questions": [
+      {
+        "answer": 0,
+        "content": "How old was Helen Mar Kimball when she married Joseph Smith?",
+        "id": "helen-mar-kimball",
+        "input_type": "radio",
+        "options": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "tags": [
+          "citation required",
+          "polygamy"
+        ]
+      },
+      {
+        "answer": 0,
+        "content": "True or false?  Joseph Smith married some women who were already married, effectively becoming their plural husband.",
+        "id": "js-polyandry",
+        "input_type": "radio",
+        "options": [
+          "True",
+          "False"
+        ],
+        "tags": [
+          "citation required",
+          "polyandry",
+          "polygamy"
+        ]
+      },
+      {
+        "answer": 0,
+        "content": "Zina Huntington was already married to Henry Jacobs when she married Joseph Smith.",
+        "id": "zina-huntington-polyandry",
+        "input_type": "checkbox",
+        "options": [
+          "True",
+          "False"
+        ],
+        "tags": [
+          "citation required",
+          "polygamy"
+        ]
+      }
+    ]
+  },
+  "misc": {
+    "name": "Pot Luck: A Variety of Topics",
+    "questions": [
+      {
+        "answer": 1,
+        "content": "True or false?  Brigham Young explicitly prohibited male-only dances from 1845 until the 1860's",
+        "id": "by-male-only-dances",
+        "input_type": "radio",
+        "options": [
+          "True",
+          "False"
+        ],
+        "tags": [
+          "dancing"
+        ]
+      },
+      {
+        "answer": 1,
+        "content": "True or false?  The Strengthening the Church Members Committee exists primarily to bake and deliver brownies to housebound local ward members.",
+        "id": "scmc",
+        "input_type": "radio",
+        "options": [
+          "True",
+          "False"
+        ],
+        "tags": []
+      }
+    ]
+  },
+  "race": {
+    "name": "A Question of Race",
+    "questions": [
+      {
+        "answer": 0,
+        "content": "True or false? Zina Huntington was already married to Henry Jacobs when she married Joseph Smith.",
+        "id": "zina-huntington-polyandry",
+        "input_type": "checkbox",
+        "options": [
+          "True",
+          "False"
+        ],
+        "tags": [
+          "citation required",
+          "polygamy"
+        ]
+      }
+    ]
+  }
 }

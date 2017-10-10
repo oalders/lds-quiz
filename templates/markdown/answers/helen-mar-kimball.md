@@ -1,6 +1,8 @@
 ## Discussion
 
-Helen Mar Kimball was sealed to Joseph Smith when she was 14 years old.  She was the youngest of Smith's polygamous wives.
+Helen Mar Kimball was sealed to Joseph Smith when she was 14 years old.  [^1] She was the youngest of Smith's polygamous wives.
+
+[^1]: Here is my fancy footnote
 
 
 ## Sources
