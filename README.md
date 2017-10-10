@@ -24,6 +24,9 @@ You're encouraged to use cpanm in order to install the dependencies.  See [https
 
     # You can now view the app at http://127.0.0.1:3000/
 
+    # Quick start
+    ./bin/convert-markdown.pl && morbo app.pl
+
 # TESTING
 
 You can run the test suite via
