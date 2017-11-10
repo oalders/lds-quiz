@@ -1,0 +1,3 @@
+[submodule "ansible/tasks/roles/common-roles"]
+	path = ansible/tasks/roles/common-roles
+	url = git@github.com:oalders/common-ansible-roles.git
