@@ -1,0 +1,4 @@
+---
+- hosts: production
+  roles:
+    - role: common-roles/git-checkout

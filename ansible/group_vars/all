@@ -1,0 +1,18 @@
+---
+apps:
+  default:
+    app_id: ldsquiz-org
+    app_service_description: LDSQuiz
+    app_user: '{{app_user}}'
+    carton:
+      env:
+        PLACK_ENV: '{{plack_env}}'
+    checkout_root: '{{checkout_root}}'
+    cpanfile:
+      - cpanfile
+    log_dir: '{{checkout_root}}/var/log'
+    pid_dir: '{{checkout_root}}/var/pid'
+    repo_url: git@github.com:oalders/lds-quiz.git
+    starman:
+      port: 8003
+      workers: '{{starman_workers}}'

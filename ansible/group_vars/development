@@ -1,0 +1,6 @@
+---
+app_user: vagrant
+carton_deployment: ' '
+checkout_root: '/{{app_user}}'
+plack_env: development
+starman_workers: 1

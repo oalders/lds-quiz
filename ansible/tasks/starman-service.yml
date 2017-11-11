@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - role: common-roles/starman-service

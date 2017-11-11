@@ -1,0 +1,4 @@
+---
+- hosts: development
+  roles:
+    - role: common-roles/development-post-bundle

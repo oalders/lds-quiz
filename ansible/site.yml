@@ -1,0 +1,12 @@
+---
+- become: no
+  gather_facts: no
+  hosts: all
+#- include: tasks/pre-bundle.yml
+#- include: tasks/git-checkout.yml
+#- include: tasks/nginx.yml
+- include: tasks/carton.yml
+- include: tasks/starman-service.yml
+- include: tasks/post-bundle.yml
+- include: tasks/development-post-bundle.yml
+- include: tasks/dot-files.yml
