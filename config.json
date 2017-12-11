@@ -95,5 +95,41 @@
             ]
          }
       ]
+   },
+   "test" : {
+      "name" : "Test Quiz",
+      "questions" : [
+         {
+            "answer" : 0,
+            "content" : "How old was Helen Mar Kimball when she married Joseph Smith?",
+            "id" : "helen-mar-kimball",
+            "input_type" : "radio",
+            "options" : [
+               14,
+               15,
+               16,
+               17
+            ],
+            "tags" : [
+               "citation required",
+               "polygamy"
+            ]
+         },
+         {
+            "answer" : 0,
+            "content" : "True or false?  Joseph Smith married some women who were already married, effectively becoming their plural husband.",
+            "id" : "js-polyandry",
+            "input_type" : "radio",
+            "options" : [
+               "True",
+               "False"
+            ],
+            "tags" : [
+               "citation required",
+               "polyandry",
+               "polygamy"
+            ]
+         }
+      ]
    }
 }

@@ -4,12 +4,13 @@ use warnings;
 use Test::More;
 
 use LDSQuiz::Model ();
+my $quiz_id = 'test';
 
 {
     my $model = LDSQuiz::Model->new(
         phase    => 'question',
         position => 0,
-        quiz_id  => 'intro',
+        quiz_id  => $quiz_id,
     );
     my $quiz = $model->quiz;
 
@@ -17,11 +18,11 @@ use LDSQuiz::Model ();
 }
 
 {
-    my $model = LDSQuiz::Model->new( position => 0, quiz_id => 'intro', );
+    my $model = LDSQuiz::Model->new( position => 0, quiz_id => $quiz_id, );
     my $quiz = $model->quiz;
 
     ok( $quiz, 'quiz' );
-    is( $quiz->id,            'intro', 'quiz_id' );
+    is( $quiz->id,            $quiz_id, 'quiz_id' );
     is( $quiz->next_position, 1,       'next_position' );
     is( $quiz->progress,      50,      'no progress' );
     is( $quiz->size,          2,       'size' );
@@ -33,7 +34,7 @@ use LDSQuiz::Model ();
     my $model = LDSQuiz::Model->new(
         phase    => 'question',
         position => 1,
-        quiz_id  => 'intro',
+        quiz_id  => $quiz_id,
     );
     my $quiz = $model->quiz;
     is( $quiz->progress, 50, 'progress' );
@@ -43,7 +44,7 @@ use LDSQuiz::Model ();
 {
     my $model = LDSQuiz::Model->new(
         position => 1,
-        quiz_id  => 'intro',
+        quiz_id  => $quiz_id,
     );
     my $quiz = $model->quiz;
     is( $quiz->progress, 100, 'progress' );

@@ -30,7 +30,7 @@ sub get_model {
     my $answers = shift;
     my $score   = LDSQuiz::Model::Quiz::Score->new(
         answers => $answers,
-        quiz_id => 'intro',
+        quiz_id => 'test',
     );
 }
 
