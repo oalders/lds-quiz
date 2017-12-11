@@ -46,12 +46,7 @@
                "citation required",
                "polygamy"
             ]
-         }
-      ]
-   },
-   "misc" : {
-      "name" : "Pot Luck: A Variety of Topics",
-      "questions" : [
+         },
          {
             "answer" : 1,
             "content" : "True or false?  Brigham Young explicitly prohibited male-only dances from 1845 until the 1860's",
@@ -75,12 +70,7 @@
                "False"
             ],
             "tags" : []
-         }
-      ]
-   },
-   "race" : {
-      "name" : "A Question of Race",
-      "questions" : [
+         },
          {
             "answer" : 0,
             "content" : "True or false?  The LDS church once owned a black slave.",
