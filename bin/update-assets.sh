@@ -8,4 +8,6 @@ cp ../the-project-bootstrap-template/html/template/css/typography-default.css pu
 cp ../the-project-bootstrap-template/html/template/plugins/jquery.min.js public/assets/js/
 cp ../the-project-bootstrap-template/html/template/bootstrap/js/bootstrap.min.js public/assets/js/
 
-# PODNAME: copy asseets from "The Project" template archive
+cp -R ../the-project-bootstrap-template/html/template/fonts/font-awesome/fonts public/assets/
+
+# PODNAME: copy assets from "The Project" template archive
