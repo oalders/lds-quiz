@@ -14,17 +14,17 @@ You're encouraged to use cpanm in order to install the dependencies.  See [https
 
     cpanm --installdeps .
 
-    # Create HTML templates from the markdown files.  You'll need to run this
-    # every time you add or update markdown.
-
-    ./bin/convert-markdown.pl
-
     # start the app
     morbo app.pl
 
     # You can now view the app at http://127.0.0.1:3000/
 
-    # Quick start
+    # To create or update HTML templates from the markdown files.  You'll need
+    to run this # every time you add or update markdown.
+
+    ./bin/convert-markdown.pl
+
+    # So a quick conversion and app startup would look like:
     ./bin/convert-markdown.pl && morbo app.pl
 
 # TESTING

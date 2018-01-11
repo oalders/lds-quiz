@@ -15,7 +15,6 @@ local
 .perl-version
 seed-cpanfile
 *.sw*
-templates/html/answers
 .tidyall.d
 .tidyall.d/
 tidyall.ERR
