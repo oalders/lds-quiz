@@ -45,8 +45,9 @@ patterns in this file.
 
 Each question requires a corresponding answer file in
 `templates/markdown/answers/`.  The templates are in markdown format, you can
-follow the format of one of the existing answer files when creating your own
-answers.
+follow the format found in [the sample markdown answer
+template](templates/markdown/empty/answer.md) when creating your
+own answers.
 
 The quiz is meant to be fun, but also educational.  For this reason, every
 question requires some sort of discussion in the answer file.  All discussion
