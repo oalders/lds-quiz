@@ -37,7 +37,7 @@
             "answer" : 0,
             "content" : "Zina Huntington was already married to Henry Jacobs when she married Joseph Smith.",
             "id" : "zina-huntington-polyandry",
-            "input_type" : "checkbox",
+            "input_type" : "radio",
             "options" : [
                "True",
                "False"
@@ -75,7 +75,7 @@
             "answer" : 0,
             "content" : "True or false?  The LDS church once owned a black slave.",
             "id" : "slave-tithing",
-            "input_type" : "checkbox",
+            "input_type" : "radio",
             "options" : [
                "True",
                "False"
