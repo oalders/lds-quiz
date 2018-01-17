@@ -1,6 +1,7 @@
 requires "Cpanel::JSON::XS" => "0";
 requires "List::AllUtils" => "0";
 requires "Math::Round" => "0";
+requires "Mojolicious", "7.60";
 requires "Moo" => "0";
 requires "Path::Tiny" => "0";
 requires "Text::Markdown" => "0";
